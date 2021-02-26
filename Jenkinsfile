@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3.6.3-jdk-8'
-        }
-    }
+    agent none
     triggers{
         pollSCM('* * * *  *')
     }
@@ -15,6 +11,11 @@ pipeline {
     }
     stages {
         stage('Prep') {
+             agent {
+                    docker {
+                        image 'maven:3.6.3-jdk-8'
+                    }
+            }
             environment {CLASS_NAME='DEVOPS'}
             steps {
                 sh 'java -version'
@@ -22,11 +23,40 @@ pipeline {
                 sh 'echo $CLASS_NAME'
             }
         }
-        stage('Build') {
-            steps {
-                sh 'mvn package -DskipTests'
-                archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
+
+        stage('Parallel Build') {
+            failFast true
+            parallel {
+                stage('Buiild Java 8'){
+                    agent {
+                        docker {
+                            image 'maven:3.6.3-jdk-8'
+                        }
+                    }
+                    steps {
+                        sh 'mvn install -DskipTests'
+                        sh 'mv target/*.jar app-java8.jar'
+                        archiveArtifacts artifacts: 'app-java8.jar', followSymlinks: false
+                    }
+                    
+                }
+
+                stage('Buiild Java 11'){
+                    agent {
+                        docker {
+                            image 'maven:3.6.3-jdk-11'
+                        }
+                    }
+                    steps {
+                        sh 'mvn install -DskipTests'
+                        sh 'mv target/*.jar app-java11.jar'
+                        archiveArtifacts artifacts: 'app-java11.jar', followSymlinks: false
+
+                    }
+                    
+                }
             }
+           
         }
     }
 }
