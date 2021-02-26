@@ -59,12 +59,12 @@ pipeline {
            
         }
     }
-      post {
+    post {
             always {
-                sh 'Hello World'
+                echo 'Hello World'
             }
             unsuccessful {
-                sh 'Failed for some reason'
+                echo 'Failed for some reason'
             }
         }
 }
