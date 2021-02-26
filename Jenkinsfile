@@ -58,5 +58,13 @@ pipeline {
             }
            
         }
+        post {
+            always {
+                sh 'Hello World'
+            }
+            unsuccessful {
+                sh 'Failed for some reason'
+            }
+        }
     }
 }
