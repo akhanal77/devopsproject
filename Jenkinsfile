@@ -58,7 +58,8 @@ pipeline {
             }
            
         }
-        post {
+    }
+      post {
             always {
                 sh 'Hello World'
             }
@@ -66,5 +67,4 @@ pipeline {
                 sh 'Failed for some reason'
             }
         }
-    }
 }
