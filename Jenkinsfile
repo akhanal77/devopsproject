@@ -1,8 +1,8 @@
 pipeline {
     agent none
-    triggers{
-        pollSCM('* * * *  *')
-    }
+   // triggers{
+   //     pollSCM('* * * *  *')
+   // }
     parameters { 
         string(
             name: 'DEPLOY_ENV', 
