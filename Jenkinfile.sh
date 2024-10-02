@@ -12,11 +12,11 @@ pipeline {
                 sh 'echo hello world'
             }
         }
-        stage('CheckOut SCM') {
-            steps {
-                git 'https://github.com/akhanal77/devopsproject.git'
-            }
-        }
+        //stage('CheckOut SCM') {
+        //    steps {
+        //        git 'https://github.com/akhanal77/devopsproject.git'
+         //   }
+       // }
         stage('Compile & Package') {
             steps {
                 sh 'mvn package -DskipTests'
