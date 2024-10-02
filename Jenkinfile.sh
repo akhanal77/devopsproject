@@ -19,7 +19,9 @@ pipeline {
        // }
         stage('Compile & Package') {
             steps {
+                withMaven() {
                 sh 'mvn package -DskipTests'
+                }
             }
         }
         stage('Build Image') {
