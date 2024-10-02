@@ -14,7 +14,7 @@ pipeline {
         }
         stage('CheckOut SCM') {
             steps {
-                git 'https://github.com/atinsingh/devopsproject.git'
+                git 'https://github.com/akhanal77/devopsproject.git'
             }
         }
         stage('Compile & Package') {
