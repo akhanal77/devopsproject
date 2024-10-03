@@ -24,7 +24,8 @@
         stage('Compile & Package') {
             steps {
                 withMaven() {
-                sh 'mvn -Dmaven.test.failure.ignore=true install'
+                sh '$MVN_CMD clean deploy'
+                //sh 'mvn -Dmaven.test.failure.ignore=true install'
                 //sh 'mvn package -DskipTests'
                 }
             }
