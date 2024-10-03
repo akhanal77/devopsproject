@@ -10,6 +10,10 @@ pipeline {
         stage('Preparattion') {
             steps {
                 sh 'echo hello world'
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "MAVEN_HOME = ${MAVEN_HOME}"
+                '''
             }
         }
         //stage('CheckOut SCM') {
