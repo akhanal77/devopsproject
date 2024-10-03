@@ -24,7 +24,8 @@ pipeline {
         stage('Compile & Package') {
             steps {
                 withMaven() {
-                sh 'mvn package -DskipTests'
+                sh 'mvn -Dmaven.test.failure.ignore=true install'
+                //sh 'mvn package -DskipTests'
                 }
             }
         }
