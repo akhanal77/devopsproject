@@ -26,7 +26,7 @@
                 withEnv(['JENKINS_MAVEN_AGENT_DISABLED=true']) {
                 sh "mvn package"
              }
-                withMaven() {
+                withMaven(maven : 'm398') {
                 //sh '$MVN_CMD clean deploy'
                 //sh 'mvn -Dmaven.test.failure.ignore=true install'
                 //sh 'mvn package -DskipTests'
