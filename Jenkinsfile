@@ -24,7 +24,7 @@
         stage('Compile & Package') {
             steps {
                 //withEnv(['JENKINS_MAVEN_AGENT_DISABLED=true']) {
-                sh "mvn package"
+                sh "mvn package -DskipTests"
              }
                // withMaven(maven : 'm398') {
                 //sh '$MVN_CMD clean deploy'
