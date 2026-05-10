@@ -1,8 +1,8 @@
  pipeline {
     agent any
     tools {
-        maven 'm398'
-        jdk 'jdk8'
+        maven 'm399'
+        jdk 'jdk21'
     }
 
 
