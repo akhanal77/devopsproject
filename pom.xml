@@ -17,12 +17,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
-  </properties>
+    </properties>
     <properties>
     <java.version>21</java.version>
- </properties>
-     
-    <dependencies>
+    </properties>
+     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
